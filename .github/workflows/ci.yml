@@ -24,7 +24,7 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macOs-latest]
 
 
 
@@ -42,7 +42,7 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
-       name: java-app
+       name: java-app-${{ matrix.os }}
        path: target/*.jar
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
